@@ -1,0 +1,27 @@
+#login-container {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: space-evenly;
+
+  padding: 1rem;
+}
+
+#login-form {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: space-evenly;
+
+  padding: 1rem;
+  width: 50%;
+}
+
+.title {  
+  font-size: 2.5rem;
+  color: #422C76;
+}
+
+.span-text {
+  color: #FF2F69;
+}
