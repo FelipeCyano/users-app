@@ -50,7 +50,8 @@ export default function UsersList() {
         fullWidth={true}
         onClick={toNavigate}
         style={{
-          marginTop: "1rem"
+          marginTop: "1rem",
+          color: "#FAF9F5"
         }}
       >
         Logout
