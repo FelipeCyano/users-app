@@ -12,6 +12,8 @@ export default function UserListPage() {
 
   const [users, setUsers] = useState([]);
 
+  const [loading, setLoading] =useState(true);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -19,6 +21,7 @@ export default function UserListPage() {
       .then(response => {
         const { data } = response;
         setUsers(data);
+        setLoading(false);
       })
       .catch(error => console.log(error));
   }, []);
@@ -37,6 +40,7 @@ export default function UserListPage() {
         rowsPerPageOptions={[10]}
         pagination
         autoHeight
+        loading={loading}
         columns={gridConfig}
         rows={users}
       />

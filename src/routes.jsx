@@ -9,7 +9,7 @@ function AppRoutes() {
     if (isAuthenticated()) {
       return children;
     }
-    return <Navigate to="/" replace/> 
+    return <Navigate to="/" replace/>
   }
 
   return (
