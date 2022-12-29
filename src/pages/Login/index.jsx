@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { Button, TextField } from '@mui/material';
 import './styles.css'
@@ -17,7 +17,6 @@ export default function Login() {
     } else {
       setError(true);
       e.preventDefault();
-      return false;
     }
   }
 
