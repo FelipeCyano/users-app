@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import { login } from '../../services/authentication';
 import { Button, TextField } from '@mui/material';
 import './styles.css'
 
-export default function Login() {
+export default function LoginPage() {
   const [user, setUser] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
 
   const navigate = useNavigate();
 
-   function authenticate(e) {
-    if (user === 'vendemmia' && password === '123123123') {
+  function authenticate(e) {
+    if (user === 'vendemmia' && password === '123123123' && login(import.meta.env.VITE_TOKEN)) {
       navigate('/users');
       setError(false);
     } else {
@@ -30,7 +31,7 @@ export default function Login() {
         </em>
 
         <span className="span-text">
-            A generic name for an app.
+          This is a subtitle for the app.
         </span>
 
         <form onSubmit={authenticate} className="login-form">

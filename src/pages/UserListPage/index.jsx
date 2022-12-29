@@ -1,21 +1,18 @@
 import React, {useEffect,  useState } from 'react';
+import { useNavigate } from "react-router-dom";
+import { logout } from '../../services/authentication';
+import axios from 'axios';
 import { DataGrid } from '@mui/x-data-grid';
 import { Button } from '@mui/material';
 import { gridConfig } from './gridConfig';
-import { useNavigate } from "react-router-dom";
-import axios from 'axios';
 import './styles.css'
 
-export default function UsersList() {
+export default function UserListPage() {
   const [pageSize, setPageSize] = useState(6);
 
   const [users, setUsers] = useState([]);
 
   const navigate = useNavigate();
-
-  function toNavigate() {
-    navigate('/');
-  }
 
   useEffect(() => {
     axios.get('https://63a1c51eba35b96522e7a1b1.mockapi.io/vdm/Users')
@@ -28,7 +25,7 @@ export default function UsersList() {
 
   return (
     <div 
-      id="list-container"
+      className="list-container"
       style={{ height: 400, width: '100vw' }}
     >
       <h2>
@@ -48,7 +45,10 @@ export default function UsersList() {
         variant="contained"
         margin="dense"
         fullWidth={true}
-        onClick={toNavigate}
+        onClick={() => {
+          logout();
+          navigate('/');
+        }}
         style={{
           marginTop: "1rem",
           color: "#FAF9F5"
